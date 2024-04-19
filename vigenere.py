@@ -7,7 +7,7 @@ unlocker = [] # The cripto key
 unlockerstring = [] # The key repeated to match the code lenght
 
 def get_key(key):
-    global unlockerstring, unlocked, translated_code, final
+    global unlockerstring, unlocked, final, translated
     for letter in key:
         if letter in alphabet:
             unlocker.append(alphabet.index(letter))
@@ -33,21 +33,33 @@ def get_key(key):
                     unlocked.append(alphabet.index(letter))
                 else:
                     unlocked.append(letter)
-    translated_code = []
     i = 0
-    o = 0
     final = ""
+    zero = float(0.0)
     for index in unlocked:
-        # try:
-        
-        final += str(float(unlocked[i]) - float(unlockerstring[i]))
-        final += " "
-        i += 1
-        print(final)
-        # except ValueError:
-        #     final += "spaço"
+        try:
+            add = (float(unlocked[i]) - float(unlockerstring[i]))
+            if add < zero:
+                add = len(alphabet) + add
+            final += str(add)
+            final += " "
+            # print(final)
+            i += 1
+        except ValueError:
+            final += " "
+            i += 1
+    translated = ""
+    for i in final:           
+        print(i)
+        # if i == " ":
+        #     translated += " "
+        # else:
+        #     translated += alphabet[int(i)]
+
+    
 
 get_key(key)
 print(unlocked)
 print(unlockerstring)
 print(final)
+print(translated)
