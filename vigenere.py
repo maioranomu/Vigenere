@@ -1,10 +1,9 @@
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-code = "ymlok cp fbb ejv"
-key = "dog"
-#24 12 11 14 10   2  15   5  1  1    4  9  21
+code = "mcf kuarz xeapl"
+key = "jyliq"
 
-unlocker = [] # The cripto key
-unlockerstring = [] # The key repeated to match the code lenght
+unlocker = []
+unlockerstring = []
 
 def get_key(key):
     global unlockerstring, unlocked, final, translated
@@ -34,32 +33,28 @@ def get_key(key):
                 else:
                     unlocked.append(letter)
     i = 0
-    final = ""
-    zero = float(0.0)
+    final = []
     for index in unlocked:
         try:
             add = (float(unlocked[i]) - float(unlockerstring[i]))
-            if add < zero:
+            if add < 0:
                 add = len(alphabet) + add
-            final += str(add)
-            final += " "
+            final.append(add)
             # print(final)
             i += 1
         except ValueError:
-            final += " "
+            final.append(" ")
             i += 1
     translated = ""
     for i in final:           
-        print(i)
-        # if i == " ":
-        #     translated += " "
-        # else:
-        #     translated += alphabet[int(i)]
-
-    
+        # print(i)
+        if i == " ":
+            translated += " "
+        else:
+            translated += alphabet[int(i)]
 
 get_key(key)
-print(unlocked)
-print(unlockerstring)
-print(final)
+# print(unlocked)
+# print(unlockerstring)
+# print(final)
 print(translated)
