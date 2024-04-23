@@ -1,3 +1,4 @@
+from calendar import c
 import os, time
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 detail = False
@@ -139,8 +140,10 @@ def main():
         cls()
         action = input("1 ENCODE | 2 DECODE \n").lower()
         if action == "1":
+            cls()
             input(encode())
         elif action == "2":
+            cls()
             input(decode())
         elif action == "d":
             match(detail):
