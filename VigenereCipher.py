@@ -1,8 +1,8 @@
-import os
+import os, time
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-# code = "mcf kuarz xeapl"
-# key = "jyliq"
+detail = False
 def decode():
+    global detail
     code = input("Code: ")
     key = input("Key: ")
     unlocker = []
@@ -37,32 +37,37 @@ def decode():
     for index in unlocked:
         try:
             add = (float(unlocked[i]) - float(unlockerstring[i]))
-            # print(add)
+            if detail:
+                print(add)
             if add < 0:
                 add = len(alphabet) + add
             final.append(add)
-            # print(final)
+            if detail:
+                print(final)
             i += 1
         except ValueError:
             final.append(" ")
             i += 1
     translated = ""
     for i in final:           
-        # print(i)
+        if detail:
+            print(i)
         if i == " ":
             translated += " "
         else:
             translated += alphabet[int(i)]
-    # print("Index 1: ")
-    # print(unlocked)    
-    # print("Index 2: ")
-    # print(unlockerstring)
-    # print("Final: ")
-    # print(final)
+    if detail:
+        print("Index 1: ")
+        print(unlocked)    
+        print("Index 2: ")
+        print(unlockerstring)
+        print("Final: ")
+        print(final)
 
     return "Result: " + translated
 
 def encode():
+    global detail
     code = input("Text: ")
     key = input("Key: ")
     unlocker = []
@@ -97,40 +102,56 @@ def encode():
     for index in unlocked:
         try:
             add = (float(unlocked[i]) + float(unlockerstring[i]))
-            # print(add)
-            if add > len(alphabet):
+            if detail:
+                print(add)
+            if add >= len(alphabet):
                 add = add - len(alphabet)
             final.append(add)
-            # print(final)
+            if detail:
+                print(final)    
             i += 1
         except ValueError:
             final.append(" ")
             i += 1
     translated = ""
-    for i in final:           
-        # print(i)
+    if detail:
+        print(final)
+    for i in final:   
+        if detail:        
+            print(i)
         if i == " ":
             translated += " "
         else:
             translated += alphabet[int(i)]
-    # print("Index 1: ")
-    # print(unlocked)    
-    # print("Index 2: ")
-    # print(unlockerstring)
-    # print("Final: ")
-    # print(final)
+    if detail:
+        print("Index 1: ")
+        print(unlocked)    
+        print("Index 2: ")
+        print(unlockerstring)
+        print("Final: ")
+        print(final)
     return "Result: " + translated
-
 def cls():
     os.system("cls")
-
 def main():
+    global detail
     while True:
         cls()
-        action = input("1 ENCODE | 2 DECODE: ")
+        action = input("1 ENCODE | 2 DECODE | D DEBUG : ").lower()
         if action == "1":
             input(encode())
         elif action == "2":
             input(decode())
-
+        elif action == "d":
+            match(detail):
+                case True:
+                    detail = False
+                    print("Details OFF")
+                    time.sleep(0.5)
+                    cls()
+                case False:
+                    detail = True
+                    print("Details ON")
+                    time.sleep(0.5)
+                    cls()
 main()
