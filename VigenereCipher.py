@@ -147,11 +147,11 @@ def main():
                 case True:
                     detail = False
                     print("DEBUG OFF")
-                    time.sleep(0.5)
+                    time.sleep(0.2)
                     cls()
                 case False:
                     detail = True
                     print("DEBUG ON")
-                    time.sleep(0.3)
+                    time.sleep(0.2)
                     cls()
 main()
