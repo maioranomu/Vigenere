@@ -63,7 +63,6 @@ def decode():
         print(unlockerstring)
         print("Final: ")
         print(final)
-
     return "Result: " + translated
 
 def encode():
