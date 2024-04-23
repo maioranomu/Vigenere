@@ -64,7 +64,6 @@ def decode():
         print("Final: ")
         print(final)
     return "Result: " + translated
-
 def encode():
     global detail
     code = input("Text: ")
@@ -153,6 +152,6 @@ def main():
                 case False:
                     detail = True
                     print("DEBUG ON")
-                    time.sleep(0.5)
+                    time.sleep(0.3)
                     cls()
 main()
