@@ -137,7 +137,7 @@ def main():
     global detail
     while True:
         cls()
-        action = input("1 ENCODE | 2 DECODE | D DEBUG : ").lower()
+        action = input("1 ENCODE | 2 DECODE \n").lower()
         if action == "1":
             input(encode())
         elif action == "2":
@@ -146,12 +146,12 @@ def main():
             match(detail):
                 case True:
                     detail = False
-                    print("Details OFF")
+                    print("DEBUG OFF")
                     time.sleep(0.5)
                     cls()
                 case False:
                     detail = True
-                    print("Details ON")
+                    print("DEBUG ON")
                     time.sleep(0.5)
                     cls()
 main()
